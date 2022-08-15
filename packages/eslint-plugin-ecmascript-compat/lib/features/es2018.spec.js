@@ -15,11 +15,17 @@ ruleTester.run('compat', require('../rule'), {
   invalid: [
     {
       code: 'async function* asyncGenerator() {}',
-      errors: [{ message: 'ES2018 async iteration is forbidden.' }],
+      errors: [
+        { message: 'ES2017 async function declarations are forbidden.' },
+        { message: 'ES2018 async iteration is forbidden.' },
+      ],
     },
     {
       code: 'async () => { for await (const bar of bar) { } }',
-      errors: [{ message: 'ES2018 async iteration is forbidden.' }],
+      errors: [
+        { message: 'ES2017 async function declarations are forbidden.' },
+        { message: 'ES2018 async iteration is forbidden.' },
+      ],
     },
     {
       code: 'const foo = { ...bar };',

@@ -42,7 +42,10 @@ ruleTester.run('compat', require('../rule'), {
     },
     {
       code: "async function foo() { await import(''); }",
-      errors: [{ message: "ES2020 'import()' syntax is forbidden." }],
+      errors: [
+        { message: 'ES2017 async function declarations are forbidden.' },
+        { message: "ES2020 'import()' syntax is forbidden." },
+      ],
     },
     {
       code: 'globalThis.foo;',
